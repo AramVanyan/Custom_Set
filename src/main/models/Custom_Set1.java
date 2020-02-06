@@ -3,12 +3,12 @@ package main.models;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Custom_Set<T extends Comparable> {
-
+public class Custom_Set1<T extends Comparable> {
         private static final Object PRESENT = new Object();
         private TreeMap<T,Object> treeMap;
 
-        public Custom_Set() {
+
+        public Custom_Set1() {
             this.treeMap = new TreeMap<T,Object>();
         }
 
@@ -18,15 +18,18 @@ public class Custom_Set<T extends Comparable> {
             }
             return treeMap.put(item,PRESENT) == null;
         }
+
         public boolean contains(T item) {
             if (item == null) {
                 throw new IllegalArgumentException();
             }
             return treeMap.containsKey(item);
         }
+
         public int getSize() {
             return treeMap.size();
         }
+
         public boolean remove(T item) {
             if (item == null) {
                 throw new IllegalArgumentException();

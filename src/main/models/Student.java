@@ -27,12 +27,21 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student student) {
-        return this.age - student.age;
+        if (this.age - student.age > 0) return 1;
+        if (this.age - student.age < 0) return -1;
+
+        if (this.firstName.compareTo(student.firstName) > 0) return 1;
+        if (this.firstName.compareTo(student.firstName) < 0) return -1;
+
+        if (this.lastName.compareTo(student.lastName) > 0) return 1;
+        if (this.lastName.compareTo(student.lastName) < 0) return -1;
+
+        return 0;
     }
 
     @Override
     public String toString() {
-        return  firstName + " " + lastName;
+        return  firstName + " " + lastName + " " + age;
     }
 
     @Override
