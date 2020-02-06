@@ -27,7 +27,16 @@ public class Glasses implements Comparable<Glasses> {
 
     @Override
     public int compareTo(Glasses glasses) {
-        return this.price - glasses.price;
+        if (this.price - glasses.price > 0) return 1;
+        if (this.price - glasses.price < 0) return -1;
+
+        if (this.frameType.compareTo(glasses.frameType) > 0) return 1;
+        if (this.frameType.compareTo(glasses.frameType) < 0) return -1;
+
+        if (this.color.compareTo(glasses.color) > 0) return 1;
+        if (this.color.compareTo(glasses.color) < 0) return -1;
+
+        return 0;
     }
 
     @Override

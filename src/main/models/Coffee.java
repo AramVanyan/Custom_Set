@@ -35,7 +35,14 @@ public class Coffee implements Comparable<Coffee> {
 
     @Override
     public int compareTo(Coffee coffee) {
-        return this.price - coffee.price;
+
+        if (this.price - coffee.price > 0) return 1;
+        if (this.price - coffee.price < 0) return -1;
+
+        if (this.type.compareTo(coffee.type) > 0) return 1;
+        if (this.type.compareTo(coffee.type) < 0) return -1;
+
+        return 0;
     }
 
     @Override

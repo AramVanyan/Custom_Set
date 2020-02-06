@@ -1,6 +1,6 @@
 package main.models;
 
-public class Custom_Set2 <T extends Comparable> {
+public class Custom_Set2 <T extends Comparable<T>> {
     private Node root;
      class Node {
         T data;
@@ -12,12 +12,12 @@ public class Custom_Set2 <T extends Comparable> {
             right = null;
         }
      }
-    public boolean add(T item) {
+
+    public void add(T item) {
         if (item == null) {
             throw new IllegalArgumentException();
         }
         root = add(root,item);
-        return true;
     }
 
     private Node add(Node root,T item) {
@@ -25,14 +25,18 @@ public class Custom_Set2 <T extends Comparable> {
             root = new Node(item);
             return root;
         }
+
         if (root.data.compareTo(item) > 0) {
             root.left = add(root.left,item);
         }
+
         else if (root.data.compareTo(item) < 0) {
             root.right = add(root.right,item);
         }
+
         return root;
     }
+
     public boolean contains(T item) {
          if (item == null) {
              throw new IllegalArgumentException();
@@ -40,13 +44,15 @@ public class Custom_Set2 <T extends Comparable> {
          return isFound(root,item);
 
     }
+
     private boolean isFound(Node root, T item) {
          boolean isFound = false;
          if (root == null) {
-             return false;
+             return isFound;
          }
          if (root.data.equals(item)) {
-             return isFound = true;
+             isFound = true;
+             return isFound;
          }
          if (root.data.compareTo(item) > 0) {
              isFound = isFound(root.left,item);
@@ -56,6 +62,7 @@ public class Custom_Set2 <T extends Comparable> {
          }
          return isFound;
     }
+
     public boolean remove(T item) {
          if (item == null) {
              throw new IllegalArgumentException();
@@ -66,6 +73,7 @@ public class Custom_Set2 <T extends Comparable> {
          }
          return false;
     }
+
     private Node remove(Node root, T item) {
          if (root == null) {
              return root;
@@ -89,7 +97,7 @@ public class Custom_Set2 <T extends Comparable> {
          return root;
     }
 
-    T minValue(Node root)
+    private T minValue(Node root)
     {
         T minValue = root.data;
         while (root.left != null)
@@ -99,12 +107,6 @@ public class Custom_Set2 <T extends Comparable> {
         }
         return minValue;
     }
-
-
-
-
-
-
 
     public int getSize() {
          return size(root);
@@ -126,13 +128,13 @@ public class Custom_Set2 <T extends Comparable> {
 
     private String printTreeInOrder(Node root) {
         StringBuilder stringBuilder = new StringBuilder();
+
         if (root == null) {
             return stringBuilder.toString();
         }
         stringBuilder.append(printTreeInOrder(root.left));
         stringBuilder.append(root.data).append(", ");
         stringBuilder.append(printTreeInOrder(root.right));
-
 
         return stringBuilder.toString();
     }

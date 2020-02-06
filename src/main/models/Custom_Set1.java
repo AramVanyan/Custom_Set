@@ -12,11 +12,11 @@ public class Custom_Set1<T extends Comparable> {
             this.treeMap = new TreeMap<T,Object>();
         }
 
-        public boolean add(T item) {
+        public void add(T item) {
             if (item == null) {
                 throw new IllegalArgumentException();
             }
-            return treeMap.put(item,PRESENT) == null;
+            treeMap.put(item, PRESENT);
         }
 
         public boolean contains(T item) {
