@@ -1,5 +1,15 @@
 package main.models;
 
+/**
+ * Custom_Set2 is a custom implementation of TreeSet based on
+ * a basic implementation of binary search tree
+ *
+ * @author Aram Vanyan
+ * @version 1.0
+ * @since 2020-02-07
+ * @param <T>
+ */
+
 public class Custom_Set2 <T extends Comparable<T>> {
     private Node root;
      class Node {
@@ -68,7 +78,7 @@ public class Custom_Set2 <T extends Comparable<T>> {
              throw new IllegalArgumentException();
          }
          if (isFound(root,item)) {
-             remove(root,item);
+             root = remove(root,item);
              return true;
          }
          return false;
@@ -85,8 +95,9 @@ public class Custom_Set2 <T extends Comparable<T>> {
              root.right = remove(root.right,item);
          }
          else {
-             if (root.left == null)
+             if (root.left == null) {
                  return root.right;
+             }
              else if (root.right == null)
                  return root.left;
 
@@ -122,6 +133,7 @@ public class Custom_Set2 <T extends Comparable<T>> {
 
     @Override
     public String toString() {
+         if (root == null) return "[]";
          String output = printTreeInOrder(root);
          return "[" + output.substring(0,output.length() - 2) + "]" ;
     }

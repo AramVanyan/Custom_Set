@@ -20,28 +20,39 @@ public class Test {
                 new Coffee("Espresso", 5),
                 new Coffee("Macchiato", 13)
         };
+
         Custom_Set1<Glasses> setOfGlasses = new Custom_Set1<Glasses>();
         Custom_Set1<Coffee> setOfCoffees = new Custom_Set1<Coffee>();
         Custom_Set1<Student> setOfStudents = new Custom_Set1<Student>();
 
+        //checking functionality of Custom_Set2 object
         Custom_Set2<Student> setOfStudents1 = new Custom_Set2<>();
-        setOfStudents1.add( new Student("Aram", "Vanyan", 20));
-        setOfStudents1.add( new Student("Tiko", "Yengibarov", 21));
-        setOfStudents1.add( new Student("Tiko", "Cherry", 20));
-        setOfStudents1.add( new Student("Tiko", "Barseghyan", 20));
-        setOfStudents1.add( new Student("Suren", "Surenyan", 19));
-        setOfStudents1.add( new Student("Suren", "Surenyan", 19));
-        System.out.println(setOfStudents1);
-        System.out.println(setOfStudents1.contains(new Student("Tiko", "Cherry", 20)));
-        System.out.println(setOfStudents1.getSize());
-        setOfStudents1.remove(new Student("Tiko", "Cherry", 20));
-        System.out.println(setOfStudents1.remove(new Student("Aram", "Vanyan", 20)));
-        System.out.println(setOfStudents1);
-        System.out.println(setOfStudents1.contains(new Student("Aram", "Vanyan", 20)));
-        setOfStudents1.add(new Student("Aram", "Vanyan", 20));
-        System.out.println(setOfStudents1);
 
-        //initialization of custom sets
+        setOfStudents1.add( new Student("Aram", "Vanyan", 20));
+        setOfStudents1.add( new Student("Tigran", "Yengibarov", 21));
+        setOfStudents1.add( new Student("Tigran", "Hakobyan", 20));
+        setOfStudents1.add( new Student("Tigran", "Barseghyan", 20));
+        setOfStudents1.add( new Student("Suren", "Surenyan", 19));
+        setOfStudents1.add( new Student("Suren", "Surenyan", 19));
+
+
+        System.out.println(setOfStudents1);
+        System.out.println(setOfStudents1.getSize());
+
+
+        System.out.println(setOfStudents1.remove(new Student("Suren", "Surenyan", 19)));
+        System.out.println(setOfStudents1.remove(new Student("Tigran", "Yengibarov", 21)));
+        System.out.println(setOfStudents1.remove(new Student("Aram", "Vanyan", 20)));
+        System.out.println(setOfStudents1.remove(new Student("Tigran", "Barseghyan", 20)));
+
+
+        System.out.println(setOfStudents1.contains(new Student("Tigran", "Barseghyan", 20)));
+        System.out.println(setOfStudents1.contains(new Student("Tigran", "Hakobyan", 20)));
+        System.out.println(setOfStudents1.getSize());
+        System.out.println(setOfStudents1);
+        //checking functionality of Custom_Set2 object
+
+        //checking functionality of Custom_Set1
         for (int i = 0; i < glasses.length; i++) {
             setOfGlasses.add(glasses[i]);
         }
@@ -51,27 +62,24 @@ public class Test {
         for (Student student : students) {
             setOfStudents.add(student);
         }
-        //initializing of custom sets
 
         //printing sets
-//        System.out.println(setOfCoffees);
-//        System.out.println(setOfGlasses);
-//        System.out.println(setOfStudents);
+        System.out.println(setOfCoffees);
+        System.out.println(setOfGlasses);
+        System.out.println(setOfStudents);
         //printing sets
         System.out.println();
 
         //testing of functions
-//        System.out.println(setOfStudents.add(new Student("Vahe","Gharibyan",50)));
-//        System.out.println(setOfStudents.contains(new Student("Aram", "Vanyan", 20)));
-//        System.out.println(setOfStudents.remove(new Student("Aram","Vanyan",20)));
-//        System.out.println(setOfStudents.remove(new Student("Aram","Vanyan",20)));
-//        System.out.println(setOfStudents.remove(new Student("Vardan","Ohanyan",26)));
-//        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
-//        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
-//        System.out.println(setOfStudents.add(new Student("Tigran", "Vardanyan", 23)));
-//        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
-//        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
-//        System.out.println(setOfStudents.getSize());
+        System.out.println(setOfStudents.contains(new Student("Aram", "Vanyan", 20)));
+        System.out.println(setOfStudents.remove(new Student("Aram","Vanyan",20)));
+        System.out.println(setOfStudents.remove(new Student("Aram","Vanyan",20)));
+        System.out.println(setOfStudents.remove(new Student("Vardan","Ohanyan",26)));
+        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
+        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
+        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
+        System.out.println(setOfStudents.remove(new Student("Tigran", "Vardanyan", 23)));
+        System.out.println(setOfStudents.getSize());
         //testing of functions
 
     }
