@@ -1,4 +1,4 @@
-package main.models;
+package util;
 
 /**
  * Custom_Set2 is a custom implementation of TreeSet based on
@@ -24,9 +24,7 @@ public class Custom_Set2 <T extends Comparable<T>> {
      }
 
     public void add(T item) {
-        if (item == null) {
-            throw new IllegalArgumentException();
-        }
+        checkForNull(item);
         root = add(root,item);
     }
 
@@ -48,9 +46,7 @@ public class Custom_Set2 <T extends Comparable<T>> {
     }
 
     public boolean contains(T item) {
-         if (item == null) {
-             throw new IllegalArgumentException();
-         }
+         checkForNull(item);
          return isFound(root,item);
 
     }
@@ -74,9 +70,7 @@ public class Custom_Set2 <T extends Comparable<T>> {
     }
 
     public boolean remove(T item) {
-         if (item == null) {
-             throw new IllegalArgumentException();
-         }
+         checkForNull(item);
          if (isFound(root,item)) {
              root = remove(root,item);
              return true;
@@ -149,5 +143,10 @@ public class Custom_Set2 <T extends Comparable<T>> {
         stringBuilder.append(printTreeInOrder(root.right));
 
         return stringBuilder.toString();
+    }
+    private void checkForNull(T item) {
+         if (item == null) {
+             throw new IllegalArgumentException();
+         }
     }
 }
